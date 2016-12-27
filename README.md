@@ -1,4 +1,4 @@
-This is all the material for the Wix NodeJS Workshop, 
+This is all the material for the NodeJS Workshop, 
 first conducted on the 6th of March, 2016.
 
 # Setup Instructions
