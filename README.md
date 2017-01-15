@@ -2,7 +2,7 @@ This is all the material for the NodeJS Workshop,
 first conducted on the 6th of March, 2016.
 
 # Setup Instructions
-1. Install Node v6 (currently v6.2.0)
+1. Install Node v7 (currently v7.4.0)
 1. Install git
 1. `$ git clone https://github.com/wix/node-workshop.git`
 1. `$ cd node-workshop`
