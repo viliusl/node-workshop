@@ -26,79 +26,69 @@ export function clearCompleted() {
 }
 
 export function refreshList(todos) {
-  return {type: types.REFRESH_LIST, todos }
-}
-
-export function deletePersistentTodo(id) {
-  return function (dispatch) {
-    return fetch(`/api/delete?id=${id}`)
-    .then(function(response) {
-      if (response.ok)
-        dispatch(addTodo(text))
-    })
-  }
+  return { type: types.REFRESH_LIST, todos }
 }
 
 export function addPersistentTodo(text) {
   return function (dispatch, getState) {
     const todos = getState().todos;
-    const nextId = todos.length == 0 ? 
+    const nextId = todos.length == 0 ?
       0 : todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1;
-    return fetch(`/api/todos/${nextId}?text=${encodeURIComponent(text)}`, {method: 'POST'})
-    .then(function(response) {
-      if (response.ok)
-        dispatch(addTodo(text, nextId))
-    })
+    return fetch(`/api/todos/${nextId}?text=${encodeURIComponent(text)}`, { method: 'POST' })
+      .then(function (response) {
+        if (response.ok)
+          dispatch(addTodo(text, nextId))
+      })
   }
 }
 
 export function refreshPersistentList() {
   return function (dispatch) {
     return fetch('/api/todos')
-    .then(function(response) {
-      if (!response.ok)
-        return Promise.reject(new Error())
-      else
-        return response.json();
-    })
-    .then(function(todos) {
-      dispatch(refreshList(todos.reverse().map(t => ({text: t.text, completed: t.checked, id: t.id}))))
-    })
+      .then(function (response) {
+        if (!response.ok)
+          return Promise.reject(new Error())
+        else
+          return response.json();
+      })
+      .then(function (todos) {
+        dispatch(refreshList(todos.reverse().map(t => ({ text: t.text, completed: t.checked, id: t.id }))))
+      })
   }
 }
 
 export function deletePersistentTodo(id) {
   return function (dispatch) {
-    return fetch(`/api/todos/${id}`, {method: 'DELETE'})
-    .then(function(response) {
-      if (!response.ok)
-        return Promise.reject(new Error())
-      else
-        dispatch(deleteTodo(id))
-    })
-  }  
+    return fetch(`/api/todos/${id}`, { method: 'DELETE' })
+      .then(function (response) {
+        if (!response.ok)
+          return Promise.reject(new Error())
+        else
+          dispatch(deleteTodo(id))
+      })
+  }
 }
 
 export function completePersistentTodo(id) {
   return function (dispatch) {
-    return fetch(`/api/todos/${id}/complete`, {method: 'PUT'})
-    .then(function(response) {
-      if (!response.ok)
-        return Promise.reject(new Error())
-      else
-        dispatch(completeTodo(id))
-    })
-  }  
+    return fetch(`/api/todos/${id}/complete`, { method: 'PUT' })
+      .then(function (response) {
+        if (!response.ok)
+          return Promise.reject(new Error())
+        else
+          dispatch(completeTodo(id))
+      })
+  }
 }
 
 export function editPersistentTodo(id, text) {
   return function (dispatch) {
-    return fetch(`/api/todos/${id}?text=${encodeURIComponent(text)}`, {method: 'PUT'})
-    .then(function(response) {
-      if (!response.ok)
-        return Promise.reject(new Error())
-      else
-        dispatch(editTodo(id, text))
-    })
-  }  
+    return fetch(`/api/todos/${id}?text=${encodeURIComponent(text)}`, { method: 'PUT' })
+      .then(function (response) {
+        if (!response.ok)
+          return Promise.reject(new Error())
+        else
+          dispatch(editTodo(id, text))
+      })
+  }
 }
