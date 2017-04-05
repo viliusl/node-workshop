@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "All code for the Wix NodeJS workshop",
   "scripts": {
-    "test": "mocha test/**/*-spec.js",
+    "test": "mocha --no-timeouts test/**/*-spec.js",
     "clean": "rm -rf node_modules"
   },
   "repository": {
@@ -27,7 +27,7 @@
     "bluebird": "^3.3.4",
     "chai": "^3.5.0",
     "lodash": "^4.6.1",
-    "mocha": "^2.4.5",
+    "mocha": "^3.2.0",
     "node-fetch": "^1.4.0"
   },
   "dependencies": {
