@@ -1,7 +1,7 @@
-var Person = require('./Person'),
+const Person = require('./Person'),
     logger = require('./logger');
 
-var kevin = new Person({
+const kevin = new Person({
     firstName:'Kevin',
     lastName:'Whinnery',
     age:31,

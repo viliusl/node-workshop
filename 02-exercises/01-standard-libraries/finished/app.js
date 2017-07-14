@@ -1,14 +1,14 @@
-var http = require('http'),
+const http = require('http'),
     fs = require('fs');
 
 http.createServer(function(request, response) {
 
     fs.readFile('./data.csv', 'utf-8', function(err, data) {
-        var responseData = {};
+        const responseData = {};
 
-        var lines = data.split('\n');
+        const lines = data.split('\n');
         lines.forEach(function(line) {
-            var parts = line.split(',');
+            const parts = line.split(',');
             responseData[parts[0]] = parts[1];
         });
 
