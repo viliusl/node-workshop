@@ -1,19 +1,19 @@
 // Load module dependencies
-const http = require('http'),
+var http = require('http'),
     fs = require('fs');
 
 http.createServer(function(request, response) {
 
     // TODO: Find the ASYNCHRONOUS, NON-BLOCKING API for reading in a file.
     fs.CHANGE_ME('./data.csv', 'utf-8', function(err, data) {
-        const responseData = {};
+        var responseData = {};
 
         // Basic JS: Work with the data in the file, and create the response
-        const lines = data.split('\n');
+        var lines = data.split('\n');
 
         // Note the native forEach support in Arrays in node.js!
         lines.forEach(function(line) {
-            const parts = line.split(',');
+            var parts = line.split(',');
             responseData[parts[0]] = parts[1];
         });
 
