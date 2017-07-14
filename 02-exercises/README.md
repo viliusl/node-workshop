@@ -1,52 +1,14 @@
-# Exercises
-The exercises are the real reason you are in this workshop. The talks we give at the
-beginning? Bah, Humbug! These exercises are what will turn you into a
-real NodeJS programmer.
+# Challenges
 
-There are three exercises, in which we will gradually build a TodoMVC app.
-Yes, we know - you're fed up with TodoMVC, but, hey, it's well known, and not
-by chance did it succeed as a "canonical app". Obviously, you don't need to 
-concern yourself with the client part (which we will give to you) - 
-you will write only the server code of this web app.
+### Challenge One: Standard Libraries
+Using node's standard libraries `http` and `fs` and built-in JSON support, read in a comma-seprated file of key-value pairs, and create an HTTP server which returns the file's contents as JSON.
 
-The exercises are built so that each exercise takes about an hour. If you are
-done sooner, feel free to continue on to the next exercise, or use the time
-for a well deserved break from coding! On the other hand, if you did 
-not finish in time, fear not! The next exercise starts from scratch, but with
-the code of the previous exercise already built in. So even if you did 50% of
-the exercise, you can continue in the next hour with the next exercise without
-any problem.
+### Challenge Two: CommonJS Modules
+Create two new CommonJS modules in a project directory.  One module should expose an instantiable object called "Person". Your constructor should accept a JavaScript object literal, which will have properties to assign to the Person. Every person should have a property `knowsKungFu` set to `false`.  The constructor should be able to override this. To accomplish this, install `underscore` from npm and use it's `_.extend` function in your constructor.
 
-The full "solutions" of the exercises are in 
-[03-solved-exercises](../03-solved-exercises/README.md), but 
-try not to look at them, OK? Yes, you can copy from them, but in that case,
-you're just cheating yourself, so what's the point? Peeking at them, on the 
-other hand, is all right, especially if the instructor is busy and can't
-help you.
+Your second custom module will be a custom logger, which will have an `info` logging function.  This function should print out the current date and time, as well as the given log message.
 
-## The Exercises
-* [*Warmup exercise*](01-db-warmup/README.md): In this exercise, 
-  you will be writing one function in the database module (that will be used
-  by the server to store and manipulate the todos), and make one test succeed.
-* [*Write the db module*](02-db/README.md): In this exercise, 
-  you will be writing the rest of database module that will be used
-  by the server to store and manipulate the todos.
-* [*Serve the front-end code*](03-todomvc-client/README.md): 
-  In this exercise, you will write the Node server
-  that serves the frontend code. The frontend code does not _yet_ persist the 
-  todos, as the backend code for that is not fully written in this exercise.
-* [*Enable persistence of todos*](04-todomvc-server/README.md): 
-  In this exercise, you will write the Ajax
-  handlers that will enable persistence of the todos, 
-  thus completing the web app.
-  
-*Important*: If you have network problems during `npm install`, 
-you should run `$ npm config set cache-min 99999`.
-This will force npm to use the network as little as possible, and if you 
-already did the setup instructions, then you should have all the modules 
-you need in the cache.
+### Challenge Three: Express and Request Routing
+Create an Express application which responds to an HTTP `GET` request, and renders an HTML page using the EJS template engine. This HTML page should contain a form, which issues a `POST` action to log in a user, then redirect back to the same page.
 
-Don't forget at the end of the workshop to do `$ npm config delete cache-min`  
-
-## Done Reading This?
-So start with the [first exercise](01-db-warmup/README.md)!   
+The `POST` action should store the user's username somehow - either in memory (store in an object) or in a cookie.  On every `GET` request to the form, the app should check for a logged-in user using connect middleware.  If the username has been stored, it should be displayed in the HTML page using a context variable for the EJS template engine.

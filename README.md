@@ -1,14 +1,14 @@
 This is all the material for the NodeJS Workshop.
 
 # Setup Instructions
-1. Install Node v7 (currently v7.10.0)
-1. Install git
-1. `$ git clone https://github.com/giltayar/node-workshop.git`
-1. `$ cd node-workshop`
-1. `$ npm install` (this takes a while)
+1. Install Node v8 (currently v8.1.4)
+2. Install git
+3. `$ git clone https://github.com/viliusl/node-workshop`
+4. `$ cd node-workshop`
+5. `$ npm install` (this takes a while)
    * Note for Windows users: the `npm install` may show errors related to python or C++. 
      Feel free to ignore them.
-1. To test your setup, run `$ npm test`. This will test all the code
+6. To test your setup, run `$ npm test`. This will test all the code
    that is used in the workshop, including the solved exercises
 
 ## Setup Visual Studio Code (optional, but recommended)
@@ -25,13 +25,3 @@ This repository has 3 parts:
   of the workshop.
 * [Exercises](02-exercises/README.md): this is the part where you get to write
   code. See below for more information on the exercises.
-* [Solved Exercises](03-solved-exercises/README.md): this contains the same
-  exercise as in the previous part, but "solved" and runnable. This is
-  reference information in case you really really can't figure it out. 
-
-# Instructions for the Exercises
-* Can be found in [the exercises folder](02-exercises/README.md).
-* Should be read carefully. You don't need to read them all at once,
-  but the introduction is important, and the per-exercise information
-  can be read before each exercise.
-

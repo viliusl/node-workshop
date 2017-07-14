@@ -11,8 +11,6 @@ describe("testing", function() {
     {file: '04-promise', failures: ['02-']},
     {file: '05-coroutines', failures: ['02-']},
     {file: '06-e2e-cmd', failures: []},
-    {file: '07-e2e-express', failures: []},
-    {file: '08-component-express', failures: []},
-    
+    {file: '07-e2e-express', failures: []},    
   ], testingFolder, it)
 })
